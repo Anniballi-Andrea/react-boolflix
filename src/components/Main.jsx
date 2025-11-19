@@ -4,6 +4,7 @@ import { useGlobalProvider } from "../context/GlobalContext"
 
 export default function Main() {
     const { movieList, movieSearch } = useGlobalProvider()
+    const [flag, setFlag] = useState()
 
 
 
@@ -12,8 +13,14 @@ export default function Main() {
         <main>
             <ul>
                 {
-                    movieSearch != undefined && movieList.map((el) => (
-                        <li key={el.id}>{el.title},{el.original_title},{el.original_language},{el.vote_average}</li>
+                    movieList != undefined && movieList.map((el) => (
+
+
+                        <li key={el.id}>{el.title},{el.original_title},{el.original_language != "en" ?
+                            <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>}
+                            ,{el.vote_average}
+                        </li>
+
                     ))
                 }
             </ul>
