@@ -2,15 +2,15 @@ import { useGlobalProvider } from "../context/GlobalContext"
 
 
 export default function Main() {
-    const { movieList } = useGlobalProvider()
+    const { movieList, movieSearch } = useGlobalProvider()
 
 
     return (
         <main>
             <ul>
                 {
-                    movieList.map((el) => (
-                        <li>{el.title},{el.original_title},{el.original_language},{el.vote_average}</li>
+                    movieSearch != undefined && movieList.map((el) => (
+                        <li key={el.id}>{el.title},{el.original_title},{el.original_language},{el.vote_average}</li>
                     ))
                 }
             </ul>
