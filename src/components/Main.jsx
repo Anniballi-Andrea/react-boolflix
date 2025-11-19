@@ -1,8 +1,11 @@
+import { useState } from "react"
 import { useGlobalProvider } from "../context/GlobalContext"
 
 
 export default function Main() {
     const { movieList, movieSearch } = useGlobalProvider()
+
+
 
 
     return (
@@ -14,6 +17,7 @@ export default function Main() {
                     ))
                 }
             </ul>
+
         </main>
 
     )
