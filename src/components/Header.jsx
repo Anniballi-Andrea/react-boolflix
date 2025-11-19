@@ -1,4 +1,8 @@
-export default function Header({ fetch }) {
+import { useGlobalProvider } from "../context/GlobalContext.jsx"
+
+
+export default function Header() {
+    const { fetchMovie } = useGlobalProvider()
 
 
     return (
@@ -6,7 +10,7 @@ export default function Header({ fetch }) {
         <header>
             <div className="container-fluid">
                 <input type="text" />
-                <button onClick={fetch}>cliccami</button>
+                <button onClick={fetchMovie}>cliccami</button>
             </div>
         </header>
     )

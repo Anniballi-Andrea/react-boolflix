@@ -1,6 +1,9 @@
-export default function Main({ movieList }) {
+import { useGlobalProvider } from "../context/GlobalContext"
 
-    /**/
+
+export default function Main() {
+    const { movieList } = useGlobalProvider()
+
 
     return (
         <main>
@@ -15,3 +18,4 @@ export default function Main({ movieList }) {
 
     )
 }
+/* */
