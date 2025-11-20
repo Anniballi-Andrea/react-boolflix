@@ -16,8 +16,10 @@ export default function Main() {
                     movieList != undefined && movieList.map((el) => (
 
 
-                        <li key={el.id}>{el.title},{el.original_title},{el.original_language != "en" ?
-                            <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>}
+                        <li key={el.id}>
+                            <img src={`http://image.tmdb.org/t/p/w200/${el.poster_path}`} alt="" />
+                            {el.title},{el.original_title},{el.original_language != "en" ?
+                                <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>}
                             ,{el.vote_average}
                         </li>
 
@@ -29,7 +31,9 @@ export default function Main() {
                     tvSeries != undefined && tvSeries.map((el) => (
 
 
-                        < li key={el.id} > {el.name}, {el.original_name},
+                        < li key={el.id} >
+                            <img src={`http://image.tmdb.org/t/p/w200/${el.poster_path}`} alt="" />
+                            {el.name}, {el.original_name},
                             {el.original_language != "en" ?
                                 <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>},
                             {el.vote_average}.
