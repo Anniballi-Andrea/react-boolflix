@@ -3,7 +3,7 @@ import { useGlobalProvider } from "../context/GlobalContext"
 
 
 export default function Main() {
-    const { movieList, tvSeries } = useGlobalProvider()
+    const { movieList, tvSeries, voteNumber } = useGlobalProvider()
 
 
 
@@ -20,7 +20,7 @@ export default function Main() {
                             <img src={`http://image.tmdb.org/t/p/w200/${el.poster_path}`} alt="" />
                             {el.title},{el.original_title},{el.original_language != "en" ?
                                 <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>}
-                            ,{el.vote_average}
+                            ,{voteNumber(el.vote_average)}
                         </li>
 
                     ))
@@ -36,7 +36,7 @@ export default function Main() {
                             {el.name}, {el.original_name},
                             {el.original_language != "en" ?
                                 <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>},
-                            {el.vote_average}.
+                            {<span >{voteNumber(el.vote_average)}</span>}.
                         </li>
 
 

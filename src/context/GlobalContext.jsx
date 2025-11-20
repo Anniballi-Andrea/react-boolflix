@@ -32,6 +32,30 @@ function Globalprovider({ children }) {
     }
 
 
+    function voteNumber(nunber) {
+
+        const newNumber = Math.floor(nunber / 2)
+        const element = []
+        for (let i = 1; i < 6; i++) {
+            if (newNumber == 0) {
+                element.push("N/A")
+                break
+            }
+            else if (i <= newNumber) {
+                element.push(<span key={i}><i className="bi bi-star-fill"></i></span>)
+            } else {
+                element.push(<span key={i}><i className="bi bi-star"></i></span>)
+
+            }
+
+        }
+        return (element)
+    }
+
+
+
+
+
     const values = {
         movieList,
         setMovieList,
@@ -40,7 +64,8 @@ function Globalprovider({ children }) {
         movieSearch,
         setReserch,
         Reserch,
-        tvSeries
+        tvSeries,
+        voteNumber
 
     }
 
