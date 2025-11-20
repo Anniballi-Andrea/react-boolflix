@@ -1,3 +1,86 @@
 @import url('bootstrap');
 @import url('bootstrap-icons');
 @import url('flag-icons');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #434343;
+}
+
+header {
+    min-height: 6rem;
+    background-color: black;
+
+    .allign {
+        align-items: center;
+    }
+
+    .logo {
+        color: red;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    input {
+        text-align: left;
+        height: 2rem;
+        padding-left: 5px;
+        border: none;
+        outline: none;
+    }
+}
+
+.relative {
+
+    position: relative;
+}
+
+.absolute {
+    top: 0;
+    left: 0;
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    display: none;
+    padding: 0.5rem;
+    background-color: black;
+    color: white;
+
+
+}
+
+.hover:hover .absolute {
+    display: block;
+}
+
+.min_width_100 {
+    min-width: 100%;
+}
+
+main {
+
+
+    .card {
+        border: 1px solid white !important;
+
+        img {
+            border-radius: 6px;
+        }
+    }
+
+    .bold {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+
+}
+
+.color_yellow {
+    color: yellow;
+}
