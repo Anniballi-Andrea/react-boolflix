@@ -1,10 +1,10 @@
-import { useState } from "react"
+
 import { useGlobalProvider } from "../context/GlobalContext"
 
 
 export default function Main() {
-    const { movieList, movieSearch } = useGlobalProvider()
-    const [flag, setFlag] = useState()
+    const { movieList, tvSeries } = useGlobalProvider()
+
 
 
 
@@ -24,8 +24,24 @@ export default function Main() {
                     ))
                 }
             </ul>
+            <ul>
+                {
+                    tvSeries != undefined && tvSeries.map((el) => (
 
-        </main>
+
+                        < li key={el.id} > {el.name}, {el.original_name},
+                            {el.original_language != "en" ?
+                                <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>},
+                            {el.vote_average}.
+                        </li>
+
+
+                    ))
+                }
+
+            </ul>
+
+        </main >
 
     )
 }

@@ -1,9 +1,9 @@
-import { useState } from "react"
+
 import { useGlobalProvider } from "../context/GlobalContext.jsx"
 
 
 export default function Header() {
-    const { fetchMovie, setMovieSearch } = useGlobalProvider()
+    const { fetchMovie, setMovieSearch, setReserch } = useGlobalProvider()
 
 
 
@@ -11,8 +11,10 @@ export default function Header() {
 
         <header>
             <div className="container-fluid">
-                <input type="text" onChange={(e) => setMovieSearch(e.target.value)} placeholder="search movie" />
-                <button onClick={fetchMovie}>cliccami</button>
+                <form onSubmit={fetchMovie}>
+                    <input type="search" onChange={(e) => setReserch(e.target.value)} placeholder="search movie" required />
+                    <button type="submit">Search</button>
+                </form>
             </div>
         </header>
     )
