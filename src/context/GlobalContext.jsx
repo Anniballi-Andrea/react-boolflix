@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios"
 
 
@@ -15,6 +15,7 @@ function Globalprovider({ children }) {
 
     function fetchMovie(e) {
         e.preventDefault()
+
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${Reserch}`)
             .then((res) => setMovieList(res.data.results))
 
@@ -25,11 +26,12 @@ function Globalprovider({ children }) {
             .catch((err) => console.log(err))
 
 
-
-
+        setReserch([])
 
 
     }
+
+
 
 
     function voteNumber(nunber) {

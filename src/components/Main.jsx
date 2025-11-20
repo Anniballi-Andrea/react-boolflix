@@ -11,40 +11,51 @@ export default function Main() {
 
     return (
         <main>
-            <ul>
-                {
-                    movieList != undefined && movieList.map((el) => (
+            <div className="container">
+                <div className="row">
+                    {
+                        movieList != undefined && movieList.map((el) => (
+                            <div key={el.id} className="col-md-4">
+                                <div className="card">
+                                    {el.poster_path != undefined ? <img src={`http://image.tmdb.org/t/p/w342/${el.poster_path}`} alt="" /> :
+                                        <img src={`http://image.tmdb.org/t/p/w342/b3R1LWvraY6RJWfIu3aLXBF1ra8.jpg`} alt="" />}
+                                </div>
+                                <div className="card">
+                                    <div><span>Title:</span> {el.title}</div>
+                                    <div><span>Original title:</span>{el.original_title}</div>
+                                    <div><span>Original language;</span>{el.original_language != "en" ?
+                                        <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>}</div>
+                                    <div><span>vote:</span>{voteNumber(el.vote_average)}</div>
+                                    <div><span>Overview:</span>{el.overview}</div>
+                                </div>
 
 
-                        <li key={el.id}>
-                            <img src={`http://image.tmdb.org/t/p/w200/${el.poster_path}`} alt="" />
-                            {el.title},{el.original_title},{el.original_language != "en" ?
-                                <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>}
-                            ,{voteNumber(el.vote_average)}
-                        </li>
-
-                    ))
-                }
-            </ul>
-            <ul>
-                {
-                    tvSeries != undefined && tvSeries.map((el) => (
-
-
-                        < li key={el.id} >
-                            <img src={`http://image.tmdb.org/t/p/w200/${el.poster_path}`} alt="" />
-                            {el.name}, {el.original_name},
-                            {el.original_language != "en" ?
-                                <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>},
-                            {<span >{voteNumber(el.vote_average)}</span>}.
-                        </li>
+                            </div>
+                        ))
+                    }
+                    {
+                        tvSeries != undefined && tvSeries.map((el) => (
+                            <div key={el.id} className="col-md-4">
+                                <div className="card">
+                                    {el.poster_path != undefined ? <img src={`http://image.tmdb.org/t/p/w342/${el.poster_path}`} alt="" /> :
+                                        <img src={`http://image.tmdb.org/t/p/w342/b3R1LWvraY6RJWfIu3aLXBF1ra8.jpg`} alt="" />}
+                                </div>
+                                <div className="card">
+                                    <div><span>Title:</span> {el.name}</div>
+                                    <div><span>Original title:</span>{el.original_name}</div>
+                                    <div><span>Original language;</span>{el.original_language != "en" ?
+                                        <span className={`fi fi-${el.original_language}`}></span> : <span className="fi fi-us"></span>}</div>
+                                    <div><span>vote:</span>{voteNumber(el.vote_average)}</div>
+                                    <div><span>Overview:</span>{el.overview}</div>
+                                </div>
 
 
-                    ))
-                }
+                            </div>
+                        ))
+                    }
 
-            </ul>
-
+                </div>
+            </div>
         </main >
 
     )

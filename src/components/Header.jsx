@@ -3,17 +3,20 @@ import { useGlobalProvider } from "../context/GlobalContext.jsx"
 
 
 export default function Header() {
-    const { fetchMovie, setMovieSearch, setReserch } = useGlobalProvider()
+    const { fetchMovie, setReserch } = useGlobalProvider()
 
 
 
     return (
 
         <header>
-            <div className="container-fluid">
+            <div className="container">
                 <form onSubmit={fetchMovie}>
-                    <input type="search" onChange={(e) => setReserch(e.target.value)} placeholder="search movie" required />
-                    <button type="submit">Search</button>
+                    <div className="d-flex justify-content-between">
+                        <div>BoolFlix</div>
+                        <input type="search" onChange={(e) => setReserch(e.target.value)} placeholder="search movie" required />
+
+                    </div>
                 </form>
             </div>
         </header>
